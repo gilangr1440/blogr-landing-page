@@ -1,0 +1,283 @@
+@import "../variables/variables";
+
+@media only screen and (min-width: 1024px) {
+  body {
+    @at-root .header {
+      height: 80vh;
+      background-size: 220% auto, 100% auto;
+      background-position: 20% 50%, 0 0;
+      border-radius: 0 0 0 5vw;
+
+      @at-root .navbar {
+        justify-content: start;
+        gap: 6vw;
+        margin-bottom: 10vh;
+
+        @at-root .navbar__dropdown-cont {
+          display: flex;
+          gap: 30px;
+          flex-grow: 1;
+
+          @at-root .navbar__dropdown {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            position: relative;
+
+            @at-root .navbar__dropdown-text {
+              font-family: $ubuntu;
+              color: $white;
+
+              @at-root &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                text-decoration-color: $white;
+              }
+            }
+
+            @at-root .navbar__dropdown-icon {
+              @at-root &:hover {
+                cursor: pointer;
+              }
+
+              @at-root &.open {
+                animation: rotate 1s;
+                rotate: 180deg;
+              }
+            }
+
+            @at-root .navbar__dropdown-list-cont {
+              display: none;
+
+              @at-root .navbar__dropdown-list {
+                @at-root .navbar__dropdown-link {
+                  font-family: $ubuntu;
+                  color: $very-dark-black-blue;
+                  text-decoration: none;
+
+                  @at-root &:hover {
+                    font-weight: 500;
+                  }
+                }
+              }
+
+              @at-root &.open {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                position: absolute;
+                top: calc(100% + 20px);
+                left: 0;
+                background: $white;
+                width: 120px;
+                padding: 30px 20px;
+                border-radius: 8px;
+                animation: dropdownOpen 1s ease-out;
+              }
+
+              @keyframes dropdownOpen {
+                from {
+                  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                }
+                to {
+                  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                }
+              }
+            }
+          }
+        }
+
+        @at-root .navbar__button-cont {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          @at-root .navbar__button {
+            text-decoration: none;
+            font-family: $ubuntu;
+            color: $white;
+
+            @at-root &_underlined:hover {
+              text-decoration: underline;
+              text-decoration-color: $white;
+              text-decoration-thickness: 1px;
+            }
+
+            @at-root &_bg_white {
+              background: white;
+              color: $light-red-cta;
+              width: 90px;
+              padding: 15px;
+              font-weight: 600;
+              text-align: center;
+              border-radius: 100px;
+
+              @at-root &:hover {
+                background: $very-light-red-cta;
+                color: $white;
+              }
+            }
+          }
+        }
+
+        @at-root .navbar__burger-button {
+          display: none;
+        }
+
+        @at-root .navbar__mobile {
+          display: none;
+        }
+      }
+
+      @at-root .header__content {
+        height: auto;
+
+        @at-root .header__title {
+          font-size: 3rem;
+        }
+
+        @at-root .header__text {
+          color: $white;
+        }
+
+        @at-root .header__button-cont {
+          @at-root .header__button {
+            width: 150px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    @at-root .main {
+      margin: 0 0 70px;
+      padding: 70px 0;
+
+      @at-root .main__title {
+        margin-top: 35px;
+      }
+
+      @at-root .section {
+        display: flex;
+        padding: 70px 0 105px;
+
+        @at-root &_mb_lg {
+          margin-bottom: 0;
+        }
+
+        @at-root &_first {
+          width: 100%;
+          position: relative;
+        }
+
+        @at-root &_last {
+          width: 100%;
+          justify-content: end;
+          position: relative;
+        }
+
+        @at-root .section__illustration-cont {
+          @at-root &_hide {
+            display: none;
+          }
+
+          @at-root .section__illustration.desktop {
+            display: block;
+            position: absolute;
+            inset: 50% -20vw auto auto;
+            transform: translateY(-50%);
+            z-index: -1;
+            width: 70vw;
+            height: auto;
+
+            @at-root .section__illustration_last.desktop {
+              inset: 50% auto auto -20vw;
+            }
+          }
+
+          @at-root .section__illustration.mobile {
+            display: none;
+          }
+        }
+
+        @at-root .section__text-section {
+          width: 50%;
+          box-sizing: border-box;
+
+          @at-root .section__text-container {
+            padding: 0 10px 0 70px;
+
+            @at-root &_last {
+              padding: 0 70px 0 10px;
+            }
+
+            @at-root .section__text-title {
+              text-align: start;
+              padding: 0;
+            }
+
+            @at-root .section__text-desc {
+              text-align: start;
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      @at-root .section_middle {
+        height: 345px;
+        background: url(../../images/bg-pattern-circles.svg), linear-gradient(to right, $very-dark-gray-blue, $very-dark-desaturated-blue);
+        background-size: auto 200%, 100% auto;
+        background-repeat: no-repeat;
+        background-position: left -20% bottom 20%, 0 0;
+        gap: 100px;
+        padding: 0 10vw;
+        margin: 10vh 0;
+        border-radius: 0 5vw 0 5vw;
+
+        @at-root .section__illustration-cont_middle {
+          position: relative;
+          inset: 0;
+          flex-basis: 50%;
+
+          @at-root .section__illustration {
+            position: absolute;
+            height: 150%;
+            width: auto;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+
+        @at-root .section__content {
+          padding: 0;
+          flex-basis: 50%;
+          justify-content: center;
+
+          @at-root .section__title {
+            text-align: start;
+          }
+
+          @at-root .section__desc {
+            text-align: start;
+          }
+        }
+      }
+    }
+
+    @at-root .footer {
+      border-radius: 0 5vw 0 0;
+
+      @at-root .footer__flex {
+        gap: 10vw;
+        padding: 10vh 10vw;
+
+        @at-root .footer__nav {
+          @at-root .footer__nav-cont {
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
+}

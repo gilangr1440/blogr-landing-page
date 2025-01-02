@@ -1,0 +1,120 @@
+@import "../variables/variables";
+
+@media only screen and (min-width: 1440px) {
+  body {
+    @at-root .header {
+      background-position: 25% 53%;
+      padding: 0 165px;
+
+      @at-root .navbar {
+        @at-root .navbar__logo-cont {
+          width: 15vw;
+        }
+
+        @at-root .navbar__dropdown-cont {
+          gap: 30px;
+
+          @at-root .navbar__dropdown {
+            gap: 8px;
+          }
+        }
+
+        @at-root .navbar__button-cont {
+          gap: 30px;
+
+          @at-root .navbar__button {
+            @at-root &_bg_white {
+              width: 100px;
+            }
+          }
+        }
+      }
+
+      @at-root .header__cont {
+        @at-root .header__title {
+          font-size: 3.5rem;
+        }
+
+        @at-root .header__text {
+          font-size: 1.2rem;
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    @at-root .main {
+      margin: 0 0 0vh;
+
+      @at-root .main__title {
+        font-size: 2.5rem;
+      }
+
+      @at-root .section {
+        padding: 15vh 0;
+
+        @at-root &_last {
+          padding: 15vh 0;
+        }
+
+        @at-root .section__illustration-cont {
+          @at-root .section__illustration.desktop {
+            width: 55vw;
+            inset: 50% -16vw auto auto;
+          }
+
+          @at-root .section__illustration_last.desktop {
+            inset: 50% auto auto -16vw;
+          }
+        }
+
+        @at-root .section__text-section {
+          padding: 0 10px 0 10.5vw;
+          gap: 13vh;
+
+          @at-root &_last {
+            padding: 0 10.5vw 0 10px;
+          }
+
+          @at-root .section__text-container {
+            padding: 0;
+
+            @at-root .section__text-title {
+              font-size: 1.8rem;
+            }
+
+            @at-root .section__text-desc {
+              line-height: 1.8;
+              font-size: 1.1rem;
+            }
+          }
+        }
+
+        @at-root &_middle {
+          padding: 0;
+          margin: 10vh 0;
+          background-size: auto auto, 100% auto;
+          background-position: left -50% bottom 20%, 0 0;
+          padding: 0 10vw;
+          gap: 4vw;
+
+          @at-root .section__content {
+            @at-root .section__desc {
+              font-size: 1.1rem;
+              line-height: 1.8;
+            }
+          }
+        }
+      }
+    }
+
+    @at-root .footer {
+      padding: 0;
+      gap: 0;
+
+      @at-root .footer__flex {
+        padding: 10vh 10vw;
+        gap: 15vw;
+      }
+    }
+  }
+}

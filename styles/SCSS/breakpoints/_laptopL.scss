@@ -1,0 +1,18 @@
+@import "../variables/variables";
+
+@media only screen and (min-width: 1200px) {
+  body {
+    @at-root .main {
+      @at-root .section {
+        @at-root .section__illustration.desktop {
+          width: 50vw;
+          inset: 50% -15vw auto auto;
+
+          @at-root .section__illustration_last.desktop {
+            inset: 50% auto auto -15vw;
+          }
+        }
+      }
+    }
+  }
+}

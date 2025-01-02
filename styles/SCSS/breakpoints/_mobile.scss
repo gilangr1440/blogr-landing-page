@@ -1,0 +1,411 @@
+@import "../variables/variables";
+
+img {
+  max-width: 100vw;
+}
+
+body {
+  font-size: 1rem;
+  max-width: 100vw;
+
+  @at-root .header {
+    background-image: url(../../images/bg-pattern-intro-mobile.svg), linear-gradient(to bottom, hsla(13, 100%, 72%, 0.3) 20%, hsl(353, 100%, 62%)), linear-gradient(to right, hsl(13, 100%, 72%) 20%, hsl(353, 100%, 62%));
+    background-size: 350% auto, 100% auto;
+    background-position: 35% 35%, 0 0;
+    background-repeat: no-repeat;
+    padding: 0 7%;
+    height: 100vh;
+    border-radius: 0 0 0 30vw;
+
+    @at-root .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 20vh;
+      position: relative;
+
+      @at-root .navbar__logo-cont {
+        max-width: 130px;
+        width: 25vw;
+
+        @at-root .navbar__logo {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      @at-root .navbar__dropdown-cont {
+        display: none;
+      }
+
+      @at-root .navbar__button-cont {
+        display: none;
+      }
+
+      @at-root .navbar__burger-button {
+        display: block;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      @at-root .navbar__mobile {
+        display: none;
+
+        @at-root &.open {
+          position: absolute;
+          top: 100%;
+          width: 100%;
+          background: $white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 35px;
+          border-radius: 5px;
+          padding: 30px 20px;
+          box-sizing: border-box;
+          animation: scrollOpen 1s ease-out;
+        }
+
+        @at-root .navbar__list-mobile {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 25px;
+          width: 100%;
+
+          @at-root .navbar__dropdown-text-cont {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: $overpass;
+            color: $very-dark-blue;
+            font-weight: 600;
+            font-size: 1.2rem;
+
+            @at-root &.open {
+              color: $very-dark-grayish-blue;
+
+              @at-root & > .navbar__dropdown-icon-mobile {
+                rotate: 180deg;
+                animation: rotate 1s;
+              }
+
+              @keyframes rotate {
+                from {
+                  rotate: 0deg;
+                }
+                to {
+                  rotate: 180deg;
+                }
+              }
+            }
+          }
+
+          @at-root .navbar__divider {
+            width: 100%;
+            border-color: lighten($color: $grayish-blue, $amount: 50%);
+          }
+
+          @at-root .navbar__dropdown-list-cont-mobile {
+            display: none;
+          }
+
+          @at-root .navbar__dropdown-list-cont-mobile.open {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            background: lighten($color: $grayish-blue, $amount: 15%);
+            width: 100%;
+            padding: 25px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            animation: scrollOpen 1s ease-out;
+
+            @at-root .navbar__dropdown-list-mobile {
+              @at-root .navbar__dropdown-link-mobile {
+                font-family: $overpass;
+                font-weight: 600;
+                color: $very-dark-grayish-blue;
+                text-decoration: none;
+              }
+            }
+
+            @keyframes scrollOpen {
+              from {
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+              }
+              to {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+              }
+            }
+          }
+
+          @at-root .navbar__button-mobile {
+            text-decoration: none;
+            font-family: $overpass;
+            color: $very-dark-blue;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+
+            @at-root &_gradient {
+              background: linear-gradient(to right, $very-light-red, $light-red);
+              color: $white;
+              width: 130px;
+              height: 20px;
+              padding: 18px;
+              border-radius: 50px;
+              font-family: $ubuntu;
+            }
+          }
+        }
+      }
+    }
+
+    @at-root .header__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 65vh;
+      gap: 10px;
+
+      @at-root .header__title {
+        font-family: $overpass;
+        font-size: 2.25rem;
+        text-align: center;
+        line-height: 1.3;
+        font-weight: 600;
+        color: $white;
+      }
+
+      @at-root .header__text {
+        font-family: $overpass;
+        text-align: center;
+        line-height: 1.4;
+        font-size: 1.2rem;
+        color: $grayish-blue;
+        margin-bottom: 50px;
+      }
+
+      @at-root .header__button-cont {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        @at-root .header__button {
+          text-decoration: none;
+          font-size: 1.2rem;
+          background: $white;
+          color: $light-red-cta;
+          height: 50px;
+          max-width: 200px;
+          width: calc(50% - 10px);
+          font-family: $overpass;
+          font-weight: 600;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          padding: 10px;
+          border-radius: 100px;
+          border: 1px solid $white;
+          text-align: center;
+
+          @at-root &:hover {
+            background: $very-light-red-cta;
+            color: $white;
+            border: 1px solid $very-light-red-cta;
+          }
+
+          @at-root &_transparent {
+            background: transparent;
+            border: 1px solid $white;
+            color: $white;
+
+            @at-root &:hover {
+              background: $white;
+              color: $very-light-red-cta;
+              border: 1px solid $white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @at-root .main {
+    display: flex;
+    flex-direction: column;
+    margin: 15vh 0;
+    overflow: hidden;
+
+    @at-root .main__title {
+      font-family: $overpass;
+      text-align: center;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: $very-dark-blue;
+    }
+
+    @at-root .section {
+      @at-root &_mb_lg {
+        margin-bottom: 40vh;
+      }
+
+      @at-root .section__illustration-cont {
+        padding: 6vh 0;
+        display: flex;
+        justify-content: center;
+
+        @at-root .section__illustration.mobile {
+          display: block;
+        }
+
+        @at-root .section__illustration.desktop {
+          display: none;
+        }
+      }
+
+      @at-root .section__text-section {
+        display: flex;
+        flex-direction: column;
+        gap: 6vh;
+
+        @at-root .section__text-container {
+          display: flex;
+          flex-direction: column;
+          gap: 4vh;
+          padding: 0 5%;
+
+          @at-root .section__text-title {
+            font-family: $overpass;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            padding: 0 15vw;
+            line-height: 1.3;
+            color: $very-dark-blue;
+          }
+
+          @at-root .section__text-desc {
+            text-align: center;
+            font-family: $overpass;
+            line-height: 1.5;
+            color: $very-dark-grayish-blue;
+            padding: 0 5vw;
+          }
+        }
+      }
+    }
+
+    @at-root .section_middle {
+      background: url(../../images/bg-pattern-circles.svg), linear-gradient(to bottom, $very-dark-gray-blue, $very-dark-desaturated-blue);
+      background-size: 155% auto, 100% auto;
+      background-repeat: no-repeat;
+      background-position: 50% -230px, 0 0;
+      position: relative;
+      border-radius: 0 30vw 0 30vw;
+
+      @at-root .section__illustration-cont_middle {
+        position: absolute;
+        top: -180px;
+        padding: 0;
+        width: 100%;
+
+        @media only screen and (min-width: 540px) and (max-width: 600px) {
+          top: -280px;
+        }
+      }
+
+      @at-root .section__content {
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
+        padding: 32vh 5vh 15vh;
+
+        @at-root .section__title {
+          font-family: $overpass;
+          text-align: center;
+          font-size: 2.3rem;
+          font-weight: 600;
+          color: $white;
+          line-height: 1.3;
+        }
+
+        @at-root .section__desc {
+          font-family: $overpass;
+          color: $grayish-blue;
+          text-align: center;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  @at-root .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12vh;
+    background: $very-dark-black-blue;
+    padding: 12vh 0 0;
+    border-radius: 0 30vw 0 0;
+
+    @at-root .footer__flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7vh;
+
+      @at-root .footer__logo {
+        margin-bottom: 3vh;
+      }
+
+      @at-root .footer__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @at-root .footer__nav-title {
+          font-family: $ubuntu;
+          color: $white;
+          text-align: center;
+        }
+
+        @at-root .footer__nav-cont {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+
+          @at-root .footer__nav-list {
+            @at-root .footer__nav-link {
+              text-decoration: none;
+              color: $grayish-blue;
+              font-family: $ubuntu;
+
+              @at-root &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @at-root .attribution {
+      color: $white;
+      font-family: $ubuntu;
+      margin-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: $grayish-blue;
+      }
+    }
+  }
+}
